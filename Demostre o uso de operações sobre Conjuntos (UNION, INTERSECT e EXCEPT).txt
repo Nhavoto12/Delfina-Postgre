@@ -1,0 +1,30 @@
+
+SELECT * FROM Empresa.Empleados_ADM ;
+SELECT * FROM Empresa.Empleados_PROD ;
+
+  -- -----------------------------------------------------
+-- UNION / UNION ALL
+-- -----------------------------------------------------
+SELECT * FROM Empresa.Empleados 
+UNION 
+SELECT * FROM Empresa.Empleados
+ORDER BY ID ;
+
+SELECT * FROM Empresa.Empleados 
+UNION ALL
+SELECT * FROM Empresa.Empleados
+ORDER BY ID ;
+
+ -- -----------------------------------------------------
+-- INTERSECT ó INNER JOIN
+-- -----------------------------------------------------
+SELECT *
+FROM Empresa.Empleados
+INNER JOIN   Empresa.Empleados
+ON (DNI) = (DNIp) ;
+
+ -- -----------------------------------------------------
+-- MINUS ó EXCEPT ó NOT IN
+-- -----------------------------------------------------
+SELECT * FROM Empresa.Empleados
+WHERE (DNI) NOT IN (SELECT DNIp FROM Empresa.Empleados) ;
